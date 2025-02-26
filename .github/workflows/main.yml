@@ -30,8 +30,9 @@ jobs:
 
       - name: Inject secret into settings.toml
         run: |
-          echo "[eoa]" > settings.toml
-          echo "private_key = '${{ secrets.PRIVATE_KEY }}'" >> settings.toml
+         sed -i '/^\[eoa\]/,/^$/d' settings.toml  # Remove existing [eoa] section
+         echo "[eoa]" >> settings.toml
+         echo "private_key = '${{ secrets.PRIVATE_KEY }}'" >> settings.toml
 
       - name: Run bot
         run: python play.py --gas_price_gwei 50 --attempts 10 --interval 5
