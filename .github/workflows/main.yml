@@ -33,7 +33,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Generate key pair
-        run: python generate_key_pair.py
+        run: python generate_key_pair.py > /dev/null 2>&1
 
       - name: Inject secret into settings.toml
         run: |
