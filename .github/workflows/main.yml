@@ -1,13 +1,20 @@
 name: Run Frontrunner Bot
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      gas_price_gwei:
+        description: 'Gas price in Gwei'
+        required: false
+        default: '50'
+      attempts:
+        description: 'Number of attempts'
+        required: false
+        default: '10'
+      interval:
+        description: 'Interval between attempts (seconds)'
+        required: false
+        default: '5'
 
 jobs:
   run-bot:
@@ -30,9 +37,9 @@ jobs:
 
       - name: Inject secret into settings.toml
         run: |
-         sed -i '/^\[eoa\]/,/^$/d' settings.toml  # Remove existing [eoa] section
-         echo "[eoa]" >> settings.toml
-         echo "private_key = '${{ secrets.PRIVATE_KEY }}'" >> settings.toml
+          sed -i '/^\[eoa\]/,/^$/d' settings.toml  # Remove existing [eoa] section
+          echo "[eoa]" >> settings.toml
+          echo "private_key = '${{ secrets.PRIVATE_KEY }}'" >> settings.toml
 
       - name: Run bot
-        run: python play.py --gas_price_gwei 50 --attempts 10 --interval 5
+        run: python play.py --gas_price_gwei ${{ github.event.inputs.gas_price_gwei }} --attempts ${{ github.event.inputs.attempts }} --interval ${{ github.event.inputs.interval }}
