@@ -1,0 +1,37 @@
+name: Run Frontrunner Bot
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate key pair
+        run: python generate_key_pair.py
+
+      - name: Inject secret into settings.toml
+        run: |
+          echo "[eoa]" > settings.toml
+          echo "private_key = '${{ secrets.PRIVATE_KEY }}'" >> settings.toml
+
+      - name: Run bot
+        run: python play.py --gas_price_gwei 50 --attempts 10 --interval 5
