@@ -19,7 +19,8 @@ A simple tool to generate transaction traffic on the Monad testnet.
 ## ✅ Prerequisites  
 Before running the bot, ensure you have:  
 - A **GitHub account**  
-- An **EVM wallet** with **testnet Monad (MONAD)**  
+- An **EVM wallet** with **testnet Monad (MONAD)**
+- No **testnet Monad (Mon)** Go get some [free faucet](https://testnet.monad.xyz/) for you wallet ! 
 
 ## 🔧 Setup  
 
