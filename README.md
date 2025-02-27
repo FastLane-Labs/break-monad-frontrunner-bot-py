@@ -12,35 +12,38 @@ Your ranking is determined by your win/loss ratio weighted by number of attempts
 </p>
 
 
-## How to run
+# 🚀 Monad Traffic Generator  
 
-I hope u already have github account & evm wallet with testnet monad in it ? 
+A simple tool to generate transaction traffic on the Monad testnet.  
 
-1. Jump to Settings and Do that
+## ✅ Prerequisites  
+Before running the bot, ensure you have:  
+- A **GitHub account**  
+- An **EVM wallet** with **testnet Monad (MONAD)**  
 
-2. Now jump to actions > click RUN_FRONTRUNNER_BOT workflow
-   now click RUN_WORKFLOW and give your desired numbers.
+## 🔧 Setup  
 
-Gas Price in Gwei : Default (50) its okey not to change it
-Number of attempts (how much traffic/transactions u want) : Default (10) u can set any number but (100 transactions = 1monad)
-Interval between attemps : Default (5) prefer not to change it
+### 1️⃣ Configure Your Wallet  
+Add your private key as a secret in GitHub:  
+1. Go to: **[GitHub Secrets](https://github.com/The-Disa1a/Monad_Traffic_Gen/settings/secrets/actions/new)**  
+2. Create a new secret:  
+   - **Name:** `PRIVATE_KEY`  
+   - **Secret:** *Your_Private_Key*  
+3. Click **Submit**  
 
-   then click RUN_WORKFLOW 
+### 2️⃣ Run the Bot  
+1. Navigate to **Actions** → **RUN_FRONTRUNNER_BOT** workflow  
+2. Click **RUN_WORKFLOW** and input your settings:  
+   - **Gas Price (Gwei):** Default `50` *(no need to change)*  
+   - **Number of Attempts:** Default `10` *(1 MONAD ≈ 100 transactions)*  
+   - **Interval Between Attempts:** Default `5` *(keep unchanged for best results)*  
+3. Click **RUN_WORKFLOW**  
 
-3. Refresh webpage if ur run didn't showup , click it , click again. now u can see your transactions
+### 3️⃣ View Transactions  
+- Refresh the page if your run doesn’t appear  
+- Click on it to see transaction details  
 
-### Settings
-1. Add your configuration:
-
-Go to here : https://github.com/The-Disa1a/Monad_Traffic_Gen/settings/secrets/actions/new
-Now setup your evm wallet private key 
-Name : PRIVATE_KEY
-Secret : Your_PVT_KEY
-Click Submit Button After That.
-
-⚠️ IMPORTANT SECURITY NOTES:
-- Never share your private key or commit it to version control!
-- Store your private key securely and keep a backup
+Now you're all set! 🚀🎯  
 
 ## Need Help?
 
