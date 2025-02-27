@@ -1,6 +1,4 @@
-# FastLane Frontrunner Bot PYTHON
-
-💡We also have a Golang version of the bot [Here](https://github.com/FastLane-Labs/break-monad-frontrunner-bot)
+# FastLane Frontrunner Bot PYTHON & Automated By Disala
 
 <p align="center">
   <img src="frontrunner-gif.gif" alt="Frontrunner Game Animation" width="600">
@@ -16,74 +14,33 @@ Your ranking is determined by your win/loss ratio weighted by number of attempts
 
 ## How to run
 
-⚠️ if you don't have Python installed, jump at Prerequisites
+I hope u already have github account & evm wallet with testnet monad in it ? 
+
+1. Jump to Settings and Do that
+
+2. Now jump to actions > click RUN_FRONTRUNNER_BOT workflow
+   now click RUN_WORKFLOW and give your desired numbers.
+
+Gas Price in Gwei : Default (50) its okey not to change it
+Number of attempts (how much traffic/transactions u want) : Default (10) u can set any number but (100 transactions = 1monad)
+Interval between attemps : Default (5) prefer not to change it
+
+   then click RUN_WORKFLOW 
+
+3. Refresh webpage if ur run didn't showup , click it , click again. now u can see your transactions
 
 ### Settings
 1. Add your configuration:
-Copy settings.toml.example to settings.toml and add your private key and rpc url
 
-settings.toml
-```toml
-[api_settings]
-rpc_url = 'your_rpc_url_here'
-
-[eoa]
-private_key = 'your_private_key_here'
-```
+Go to here : https://github.com/The-Disa1a/Monad_Traffic_Gen/settings/secrets/actions/new
+Now setup your evm wallet private key 
+Name : PRIVATE_KEY
+Secret : Your_PVT_KEY
+Click Submit Button After That.
 
 ⚠️ IMPORTANT SECURITY NOTES:
 - Never share your private key or commit it to version control!
 - Store your private key securely and keep a backup
-
-### Run the bot
-
-```sh
-python play.py 
-```
-### Run the bot advanced mode
-
-```sh
-python play.py --gas_price_gwei 60 --attempts 1 --interval 5
-```
-If you do not enter any arguments, the bot will use the default values. If you do not enter `attempts` the bot will run indefinitely.
-
-## Prerequisites
-
-### 1. Install Python
-
-First, you'll need to install Python on your computer:
-
-#### Windows:
-1. Download the installer from [Python's official website](https://www.python.org/downloads/)
-2. Run the installer and follow the prompts
-3. Open Command Prompt and verify installation:
-```sh
-python --version
-```
-
-#### Mac:
-Using Homebrew:
-```sh
-brew install python
-```
-
-### 2. Install Python Dependencies
-
-```sh
-pip install -r requirements.txt
-```
-If something is missing:
-```sh
-pip install <package_name>
-```
-
-### 3. Generate a private key
-
-You can generate a private key using the following command:
-```sh
-python generate_key_pair.py
-```
-
 
 ## Need Help?
 
